@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cinematic Link Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg-start: #1c1c1c;   /* slightly lighter dark start */
+      --bg-end: #0f0f0f;     /* smooth darker end */
+      --panel: #2a2a2a;      /* card panels */
+      --accent: #ffffff;     /* cinematic white */
+      --text: #e0e0e0;
+      --blue: #1e90ff;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text);
+      background: linear-gradient(to bottom, var(--bg-start) 0%, var(--bg-end) 100%);
+      overflow-x: hidden;
+    }
+
+    /* Author line */
+    .credits {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--accent);
+      padding: 8px;
+      opacity: 0.85;
+      letter-spacing: 2px;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    /* Hero section */
+    .hero {
+      position: relative;
+      min-height: 60vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background: linear-gradient(to bottom right, #222, #111);
+      overflow: hidden;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 40px 20px;
+      max-width: 1100px;
+      width: 100%;
+      animation: fadeUp 1.5s ease both;
+    }
+
+    .hero-title {
+      font-size: clamp(1.5rem, 5vw, 2.5rem); /* smaller salam */
+      font-weight: 800;
+      color: var(--accent);
+      margin: 0 0 12px;
+      text-shadow: 0 0 12px rgba(255,255,255,0.6);
+      animation: glowPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { text-shadow: 0 0 12px rgba(255,255,255,0.6); }
+      50% { text-shadow: 0 0 24px rgba(255,255,255,0.9); }
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: var(--text);
+      opacity: 0.9;
+      margin: 0 auto 28px;
+      max-width: 800px;
+      animation: fadeIn 2.5s ease forwards;
+    }
+
+    .divider {
+      width: 140px;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--accent), transparent);
+      margin: 16px auto 0;
+      animation: fadeIn 3s ease forwards;
+    }
+
+    /* Buttons */
+    .button-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 32px auto 10px;
+      padding: 0 20px;
+      max-width: 900px;
+    }
+
+    button {
+      padding: 14px 26px;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #444, #666);
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      animation: fadeUp 1.5s ease both;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #fff, #ddd);
+      color: #000;
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 0 20px rgba(255,255,255,0.6);
+    }
+
+    /* Content cards */
+    .content {
+      max-width: 1100px;
+      margin: 40px auto 80px;
+      padding: 0 20px;
+    }
+
+    .card {
+      background-color: var(--panel);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 20px auto;
+      text-align: left;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      animation: fadeUp 1.5s ease both;
+    }
+
+    .card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(255,255,255,0.2);
+    }
+
+    .card h2 {
+      color: var(--accent);
+      margin: 0 0 12px;
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      font-weight: 800;
+      text-shadow: 0 0 8px rgba(255,255,255,0.4);
+    }
+
+    .category {
+      font-weight: bold;
+      color: var(--accent);
+    }
+
+    .card p {
+      color: var(--text);
+      margin: 6px 0;
+      line-height: 1.6;
+      font-size: 0.98rem;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(30,144,255,0.35);
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+    a:hover {
+      color: #63b3ff;
+      border-color: rgba(99,179,255,0.65);
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Author line -->
+  <div class="credits">By Abu Maryam al‑I‘lāmī</div>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">السلام عليكم ورحمة الله وبركاته</h1>
+      <p class="hero-subtitle">Useful links for every muwahid and muwahida</p>
+      <div class="divider"></div>
+
+      <div class="button-container">
+        <button onclick="window.open('https://fmhy.net/', '_blank')">FMHY</button>
+        <button onclick="window.open('https://cracked.sh', '_blank')">Cracked.sh</button>
+        <button onclick="window.open('https://filecr.com/', '_blank')">filecr.com</button>
+      </div>
+    </div>
+  </section>
+
+  <main class="content">
+    <!-- Card: FMHY -->
+    <div class="card">
+      <h2>Free Media Heck Yeah (FMHY)</h2>
+      <p><span class="category">Link:</span> <a href="https://fmhy.net/" target="_blank">https://fmhy.net</a></p>
+      <p><span class="category">Downloads:</span> Curated links to free tools and resources.</p>
+      <p><span class="category">Definition:</span> A hub for free media and software guides.</p>
+    </div>
+
+    <!-- Card: Cracked.sh -->
+    <div class="card">
+      <h2>Cracked.sh</h2>
+      <p><span class="category">Link:</span> <a href="https://cracked.sh" target="_blank">https://cracked.sh</a></p>
+      <p><span class="category">Downloads:</span> Community‑shared files and resources.</p>
+      <p><span class="category">Definition:</span> An online forum for free stuff.</p>
+    </div>
+
+    <!-- Card: filecr.com -->
+    <div class="card">
+      <h2>filecr.com</h2>
+      <p><span class="category">Link:</span> <a href="https://filecr.com/" target="_blank">https://filecr.com/</a></p>
+      <p><span class="category">Downloads:</span> Access to various programs.</p>
+      <p><span class="category">Definition:</span> Free software site.</p>
+    </div>
+  </main>
+</body>
+</html
